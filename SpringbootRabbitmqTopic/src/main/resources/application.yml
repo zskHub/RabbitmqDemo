@@ -1,3 +1,6 @@
+server:
+  port: 9001
+
 # rabbitmq相关配置
 spring:
   rabbitmq:
