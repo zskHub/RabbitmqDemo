@@ -1,4 +1,4 @@
-package cn.zsk.spirngbootrabbitmq.service;
+package cn.zsk.springbootrabbitmq.service;
 
 /**
  * @author:zsk

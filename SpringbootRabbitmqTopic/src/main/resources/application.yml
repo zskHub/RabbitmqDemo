@@ -26,3 +26,19 @@ spring:
     username: admin
     password: 123456
 
+#消息确认机制
+    # 消费手动确认
+    listener:
+      simple:
+        acknowledge-mode: manual
+        retry:
+          enabled: true
+          max-attempts: 3
+          # 消息多次消费的间隔1秒
+          initial-interval: 1000
+        # 设置为false，会丢弃消息或者重新发布到死信队列
+        default-requeue-rejected: false
+    publisher-confirms: true #开启消息确认机制
+    publisher-returns: true #支持消息发送失败返回队列
+
+

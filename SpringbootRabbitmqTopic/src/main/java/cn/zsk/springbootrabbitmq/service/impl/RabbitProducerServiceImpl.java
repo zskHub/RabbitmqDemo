@@ -1,14 +1,12 @@
-package cn.zsk.spirngbootrabbitmq.service.impl;
+package cn.zsk.springbootrabbitmq.service.impl;
 
-import cn.zsk.spirngbootrabbitmq.service.RabbitProducerService;
+import cn.zsk.springbootrabbitmq.service.RabbitProducerService;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author:zsk

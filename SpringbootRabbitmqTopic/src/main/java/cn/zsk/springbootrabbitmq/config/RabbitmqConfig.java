@@ -1,4 +1,4 @@
-package cn.zsk.spirngbootrabbitmq.config;
+package cn.zsk.springbootrabbitmq.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @CreateTime:2019-05-22 14:30
  */
 @Configuration
-public class rabbitmqConfig {
+public class RabbitmqConfig {
 
     //声明交换机
     @Bean
@@ -39,6 +39,12 @@ public class rabbitmqConfig {
     @Bean(name="topic.c")
     Queue queueC() {
         return new Queue("topic.c");
+    }
+
+    //定义队列
+    @Bean(name="topic.d")
+    Queue queueD() {
+        return new Queue("topic.d");
     }
 
     /*
@@ -76,4 +82,13 @@ public class rabbitmqConfig {
                 .with("topic.*.z");
     }
 
+    //将队列D绑定到交换机
+    @Bean
+    Binding bindingExchangeWithD(@Qualifier("topic.d") Queue queueMessages, TopicExchange exchange) {
+        //*表示一个词,#表示零个或多个词
+        return BindingBuilder
+                .bind(queueMessages)
+                .to(exchange)
+                .with("topic.d");
+    }
 }
