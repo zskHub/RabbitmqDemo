@@ -27,11 +27,11 @@ public class RabbitProducerAckServiceImpl implements RabbitProducerAckService {
         System.out.println(dateString);
         // 注意 第一个参数是我们交换机的名称 ，第二个参数是routerKey ，第三个是你要发送的消息
         // 这条信息将会被topic.b、topic.d接收
-//        this.rabbitTemplate.convertAndSend("topicExchange", "topic.d", dateString);
+        this.rabbitTemplate.convertAndSend("topicExchange", "topic.d", dateString);
 
         //测试：直接放到死信exchange
-        this.rabbitTemplate.convertAndSend(RabbitDeadLetterConfig.DEAD_LETTER_EXCHANGE,
-                RabbitDeadLetterConfig.DEAD_LETTER_TEST_ROUTING_KEY, 10);
+//        this.rabbitTemplate.convertAndSend(RabbitDeadLetterConfig.DEAD_LETTER_EXCHANGE,
+//                RabbitDeadLetterConfig.DEAD_LETTER_TEST_ROUTING_KEY, 10);
 
     }
 }
